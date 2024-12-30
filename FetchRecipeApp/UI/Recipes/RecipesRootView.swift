@@ -82,13 +82,17 @@ class RecipesRootView: NiblessView {
             filterCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             filterCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             filterCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            filterCollectionView.heightAnchor.constraint(equalToConstant: 64),
-            
+            filterCollectionView.heightAnchor.constraint(equalToConstant: 64)
+        ])
+        
+        NSLayoutConstraint.activate([
             recipesCollectionView.topAnchor.constraint(equalTo: filterCollectionView.bottomAnchor),
             recipesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             recipesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            recipesCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
+            recipesCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
             placeholderLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             placeholderLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             placeholderLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),

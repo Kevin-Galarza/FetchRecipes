@@ -199,10 +199,10 @@
 		18C96C1B2D19C63500DD2DA1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				18FA78DE2D23345A00C75002 /* Models */,
 				18FA78DB2D23272800C75002 /* ImageLoader */,
 				18FA78D82D2326B800C75002 /* APIClient */,
 				18C96C342D19EFE800DD2DA1 /* Cache */,
-				18C96C252D19D2A400DD2DA1 /* Recipe.swift */,
 				18C96C2B2D19D44500DD2DA1 /* Logger.swift */,
 			);
 			path = Data;
@@ -244,6 +244,14 @@
 				18C96C322D19EE8900DD2DA1 /* ImageLoader.swift */,
 			);
 			path = ImageLoader;
+			sourceTree = "<group>";
+		};
+		18FA78DE2D23345A00C75002 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				18C96C252D19D2A400DD2DA1 /* Recipe.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

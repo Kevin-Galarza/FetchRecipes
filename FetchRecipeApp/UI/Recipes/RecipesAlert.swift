@@ -11,7 +11,7 @@ enum RecipesAlert {
     var title: String {
         switch self {
         case .sourceUnavailable: "Recipe URL Unavailable"
-        case .recipesUnavailable: "Oopsie Poopsie"
+        case .recipesUnavailable: "Recipes Unavailable"
         }
     }
     

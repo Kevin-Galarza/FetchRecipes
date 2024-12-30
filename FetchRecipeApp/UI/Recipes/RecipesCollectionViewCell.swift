@@ -43,6 +43,12 @@ class RecipesCollectionViewCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
+    func configure(with name: String, cuisine: String, image: UIImage?) {
+        nameLabel.text = name
+        cuisineLabel.text = cuisine
+        imageView.image = image ?? UIImage(systemName: "carrot")
+    }
+    
     private func constructHierarchy() {
         addSubview(imageView)
         addSubview(nameLabel)
@@ -72,11 +78,5 @@ class RecipesCollectionViewCell: UICollectionViewCell {
             cuisineLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             cuisineLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 12)
         ])
-    }
-    
-    func configure(with name: String, cuisine: String, image: UIImage?) {
-        nameLabel.text = name
-        cuisineLabel.text = cuisine
-        imageView.image = image ?? UIImage(systemName: "carrot")
     }
 }

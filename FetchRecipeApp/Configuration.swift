@@ -13,6 +13,7 @@ enum RecipesAPIPath: String {
     case empty = "/recipes-empty.json"
 }
 
+// You can use this configuration to quickly switch between the different Recipes API path options and the storage location for the `DiskCache`.
 struct Configuration {
     static let recipesAPIHost: String = "https://d3jbb8n5wk0qxi.cloudfront.net"
     static let recipesAPIPath: RecipesAPIPath = .normal

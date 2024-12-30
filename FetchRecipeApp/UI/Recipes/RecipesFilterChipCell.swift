@@ -14,14 +14,9 @@ class RecipesFilterChipCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-        ])
-        contentView.layer.cornerRadius = 16
-        contentView.layer.masksToBounds = true
+        constructHierarchy()
+        applyConstraints()
+        applyStyle()
     }
     
     required init?(coder: NSCoder) {
@@ -33,5 +28,22 @@ class RecipesFilterChipCell: UICollectionViewCell {
         label.textColor = isSelected ? .white : .black.withAlphaComponent(0.8)
         label.font = .boldSystemFont(ofSize: 16)
         contentView.backgroundColor = isSelected ? .systemRed : UIColor(hex: "F5F5F5")
+    }
+    
+    private func constructHierarchy() {
+        contentView.addSubview(label)
+    }
+    
+    private func applyConstraints() {
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+        ])
+    }
+    
+    private func applyStyle() {
+        contentView.layer.cornerRadius = 16
+        contentView.layer.masksToBounds = true
     }
 }
