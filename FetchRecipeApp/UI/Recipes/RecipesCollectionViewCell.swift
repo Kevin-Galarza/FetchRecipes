@@ -14,7 +14,7 @@ class RecipesCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 12
+        imageView.layer.cornerRadius = 16
         return imageView
     }()
     
@@ -22,13 +22,14 @@ class RecipesCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .bold)
         label.numberOfLines = 0
+        label.textColor = .black.withAlphaComponent(0.8)
         return label
     }()
     
     let cuisineLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .bold)
-        label.textColor = .white
+        label.textColor = .systemRed
         return label
     }()
     
@@ -63,13 +64,13 @@ class RecipesCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16)
+            nameLabel.topAnchor.constraint(equalTo: cuisineLabel.bottomAnchor, constant: 8)
         ])
         
         NSLayoutConstraint.activate([
-            cuisineLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            cuisineLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
-            cuisineLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12)
+            cuisineLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            cuisineLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            cuisineLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 12)
         ])
     }
     

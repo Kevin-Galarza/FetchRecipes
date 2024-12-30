@@ -25,12 +25,37 @@ class RecipesViewController: NiblessViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        title = "Recipes"
     }
 
     private func setupBindings() {
+        viewModel.presentRecipeSourcePublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] url in
+                guard let url = url else { return }
+                self?.presentRecipeSource(url: url)
+            }
+            .store(in: &subscriptions)
         
+        viewModel.presentAlertPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] alert in
+                self?.presentRecipeSourceAlert(alert: alert)
+            }
+            .store(in: &subscriptions)
     }
-
+    
+    private func presentRecipeSource(url: URL) {
+        UIApplication.shared.open(url, options: [:])
+    }
+    
+    private func presentRecipeSourceAlert(alert: RecipesAlert) {
+        let alert = UIAlertController(
+            title: alert.title,
+            message: alert.message,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
-

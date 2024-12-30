@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe: Codable {
+struct Recipe: Codable, Equatable {
     let cuisine: String
     let name: String
     let photoUrlLarge: String?
@@ -23,4 +23,8 @@ struct Recipe: Codable {
         case sourceUrl = "source_url"
         case youtubeUrl = "youtube_url"
     }
+}
+
+struct RecipeResponse: Codable {
+    let recipes: [Recipe]
 }
